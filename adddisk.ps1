@@ -1,0 +1,1 @@
+Get-Disk | Where-Object PartitionStyle -EQ 'RAW' | Initialize-Disk;$disk1=(Get-Disk | Where-Object{$_.Size -eq "100GB"}).Number;New-Partition -DiskNumber $disk1 -UseMaximumSize -DriveLetter B|Format-Volume -Confirm:$false;
